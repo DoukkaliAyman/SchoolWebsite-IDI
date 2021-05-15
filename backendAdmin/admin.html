@@ -1,0 +1,497 @@
+<!-- <?php
+    session_start();
+    include("../backendAll/connect.php");
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/fontawesome.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/brands.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/solid.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="menu">
+        
+        </div>
+        <div class="model">
+            <div id="content">
+    
+            </div>
+        </div> -->
+        <div class="menu">
+            <div class="heading">
+                <h2>Welcome <!-- <?php echo $_SESSION['user'] ?> --></h2>
+            </div>
+            <div class="menuContent">
+                <ul>
+                    <li onclick="teachers()" id="tchr"><p>Teachers</p></li>
+                    <li onclick="students()"><p>Students</p></li>
+                    <!-- <li onclick="addStudent()" id="adstud">Add a Student</li>
+                    <li onclick="addTeacher()">Add a Teacher</li>
+                    <li onclick="delStudent()" id="dlstud">Delete/Edit a Student</li>
+                    <li onclick="delTeacher()">Delete/Edit a Teacher</li> -->
+                    <li onclick="registers()" id="regs"><p>Registerations</p></li>
+                    <li onclick="notifi()"><p>Notifications</p></li>
+                    <!-- <li onclick="addNotif()" id="adnoti">Add a Notif.</li> -->
+                </ul>
+            </div>
+            <div class="logout">
+                <div class="log-out">
+                    <a class="btn" href="../backendAll/logout.php">Log Out</a>
+                </div>
+                <div class="sett">
+                    <a class="btn" href="#"><span class="fas fa-cog"></span>Settings</a>
+                </div>
+            </div>
+        </div>
+        <div class="model">
+            <!-- <div id="teachers">
+                <div class="head1">
+                    <div class="teach">
+                        <h1>teachers</h1>
+                    </div>
+                    <div class="menubar">
+                        <ul>
+                            <li><button name="lstteach">List all Teachers</button></li>
+                            <li><button name="addteach">Add a Teacher</button></li>
+                            <li><button name="delteach">Delete a Teacher</button></li>
+                            <li><button name="edtteach">Edit a Teacher</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content1">
+                    <table class="tab">
+                        <tr>
+                            <th>id</th>
+                            <th>username</th>
+                            <th>password</th>
+                            <th>email</th>
+                            <th>National ID</th>
+                            <th>subject</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div> -->
+            <!-- <div id="students">
+                <div class="head1">
+                    <div class="teach">
+                        <h1>Students</h1>
+                    </div>
+                    <div class="menubar">
+                        <ul>
+                            <li><button name="lststud">List all Students</button></li>
+                            <li><button name="addstud">Add a Student</button></li>
+                            <li><button name="delstud">Delete a Student</button></li>
+                            <li><button name="edtstud">Edit a Student</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content1">
+                    <table class="tab">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>username</th>
+                                <th>password</th>
+                                <th>Name</th>
+                                <th>Birth Date</th>
+                                <th>Telephone</th>
+                                <th>Subjects</th>
+                                <th>email</th>
+                                <th>National ID</th>
+                                <th>Finish</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+            <!-- <div id="addStudent">
+                <div class="head1">
+                    <div id="teach1" class="teach">
+                        <h1>Add a Student</h1>
+                    </div>
+                    <div class="menubar">
+                        <ul>
+                            <li><button name="lststud">List all Students</button></li>
+                            <li><button name="addstud">Add a Student</button></li>
+                            <li><button name="delstud">Delete a Student</button></li>
+                            <li><button name="edtstud">Edit a Student</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content1">
+                    <form action="" method="POST">
+                        <div class="name">
+                            <div class="all">
+                                <label for="fname">First Name: </label>
+                                <input type="text" name="fname" id="fname">
+                            </div>
+                            <div class="all">
+                                <label for="lname">Last Name: </label>
+                                <input type="text" name="lname" id="lname">
+                            </div>
+                        </div>
+                        <div class="dt">
+                            <div class="all">
+                                <label for="bdate">Birth Date: </label>
+                                <input type="date" name="bdate" id="bdate">
+                            </div>
+                        </div>
+                        <div class="con">
+                            <div class="all">
+                                <label for="tel">TelePhone: </label>
+                                <input type="tel" name="tel" id="tel">
+                            </div>
+                            <div class="all">
+                                <label for="email">Email: </label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="num">
+                            <div class="all">
+                                <label for="nat">National ID: </label>
+                                <input type="number" name="nat" id="nat">
+                            </div>
+                            <div class="all">
+                                <label for="starttime">Starting Time: </label>
+                                <input type="date" name="start" id="start">
+                            </div>
+                        </div>
+                        <div class="subb">
+                            <div class="subj">
+                                <label for="subj">Subjects: </label>
+                                <select multiple name="subj" id="subject">
+                                    <option value="ara">Arabic</option>
+                                    <option value="eng">English</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="users">
+                            <div class="all">
+                                <label for="username">Username: </label>
+                                <input type="text" name="username2" id="username2">
+                            </div>
+                            <div class="all">
+                                <label for="pass">Password: </label>
+                                <input type="password" name="pass" id="pass">
+                                <span class="fas fa-eye" onclick="showpass()" id="eye"></span>
+                            </div>
+                        </div>
+                        <div class="substud">
+                            <input class="btn" type="submit" value="Submit" name="substud">    
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+            <!-- <div id="deletestudent">
+                <div id="buttons">
+                    <button id="btn1">Delete</button>
+                    <button id="btn2">Edit</button>
+                </div>
+            </div> -->
+            <!-- <div id="btnstud">
+                <div class="head1">
+                    <h1>Students</h1>
+                </div>
+                <div class="content1">
+                    <form action="">
+                        <div class="first">
+                            <button id="butn1" name="addstud">Add a Student</button>
+                            <button id="butn2" name="delstud">Delete a Student</button>
+                        </div>
+                        <div class="second">
+                            <button id="butn3" name="edtstud">Edit a Student</button>
+                            <button id="butn4" name="lststud">list All Students</button>
+                        </div>
+                </form>
+                </div>
+            </div> -->
+            <!-- <div id="btnstud">
+                <div class="head1">
+                    <h1>Teachers</h1>
+                </div>
+                <div class="content1">
+                    <form action="">
+                        <div class="first">
+                            <button id="butn1" name="addteach">Add a Teachers</button>
+                            <button id="butn2" name="delteach">Delete a Teacher</button>
+                        </div>
+                        <div class="second">
+                            <button id="butn3" name="edtteach">Edit a Teacher</button>
+                            <button id="butn4" name="lstteach">list All Teacher</button>
+                        </div>
+                </form>
+                </div>
+            </div> -->
+            <div id="addTeacher">
+                <div class="head1">
+                    <div id="tch" class="teach">
+                        <h1>Add a Teacher</h1>
+                    </div>
+                    <div class="menubar">
+                        <ul>
+                            <li><button name="lstteach">List all Teachers</button></li>
+                            <li><button name="addteach">Add a Teacher</button></li>
+                            <li><button name="delteach">Delete a Teacher</button></li>
+                            <li><button name="edtteach">Edit a Teacher</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content1">
+                    <form action="" method="POST">
+                        <div class="name">
+                            <div class="all">
+                                <label for="fname">First Name: </label>
+                                <input type="text" name="fname" id="fname">
+                            </div>
+                            <div class="all">
+                                <label for="lname">Last Name: </label>
+                                <input type="text" name="lname" id="lname">
+                            </div>
+                        </div>
+                        <div class="subb">
+                            <div class="subj" id="su">
+                                <label for="subj">Subjects to be teached: </label>
+                                <select multiple name="subjteach" id="subjectteach">
+                                    <option value="ara">Arabic</option>
+                                    <option value="eng">English</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="con">
+                            <div class="all">
+                                <label for="tel">TelePhone: </label>
+                                <input type="tel" name="tel" id="tel">
+                            </div>
+                            <div class="all">
+                                <label for="email">Email: </label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="num">
+                            <div class="all">
+                                <label for="nat">National ID: </label>
+                                <input type="number" name="nat" id="nat">
+                            </div>
+                            <div class="all">
+                                <label for="starttime">Starting Time: </label>
+                                <input type="date" name="start" id="start">
+                            </div>
+                        </div>
+                        <div class="users">
+                            <div class="all">
+                                <label for="username">Username: </label>
+                                <input type="text" name="username2" id="username2">
+                            </div>
+                            <div class="all">
+                                <label for="pass">Password: </label>
+                                <input type="password" name="pass" id="pass">
+                                <span class="fas fa-eye" onclick="showpass()" id="eye"></span>
+                            </div>
+                        </div>
+                        <div class="substud">
+                            <input class="btn" type="submit" value="Submit" name="substud">    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        document.getElementById("btn1").addEventListener("click", function(event){
+            event.preventDefault();
+        });
+        document.getElementById("btn2").addEventListener("click", function(event){
+            event.preventDefault();
+        });
+    </script> -->
+</body>
+</html>
