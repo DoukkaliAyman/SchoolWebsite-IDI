@@ -490,3 +490,12 @@ html,body {
 #su {
     margin-right: 70px;
 }
+#teach12 {
+    width: 30%;
+}
+#teach12 h1 {
+    width: 230px;
+}
+.deletestud {
+    height: 100%;
+}
