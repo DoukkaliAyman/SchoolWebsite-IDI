@@ -175,6 +175,24 @@ html,body {
     display: inline-block;
     padding: 0 20px;
 }
+.menubar ul li p {
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    color: black;
+    border: 1px solid #eee;
+    background-color: #eee;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menubar ul li p:hover {
+    color: #344fa1;
+    opacity: 0.8;
+    transition: all ease-in 0.2s;
+}
 .menubar ul li button {
     height: 40px;
     width: 120px;
@@ -183,7 +201,10 @@ html,body {
     border: 1px solid #eee;
     background-color: #eee;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .menubar ul li button:hover {
     color: #344fa1;
@@ -383,10 +404,10 @@ html,body {
     width: 100px;
     cursor: pointer;
 }
-#btnstud {
+.btnstud {
     height: 100%;
 }
-#btnstud h1 {
+.btnstud h1 {
     text-transform: capitalize;
     padding: 10px;
     margin-left: 10px;
@@ -394,7 +415,7 @@ html,body {
     background-color: #5C91B6;
     width: 120px;
 }
-#btnstud form {
+.btnstud form {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -424,7 +445,10 @@ html,body {
     border: 1px solid #eee;
     background-color: #eee;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #butn1:hover {
     color: #344fa1;
@@ -439,7 +463,10 @@ html,body {
     border: 1px solid #eee;
     background-color: #eee;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #butn2:hover {
     color: #344fa1;
@@ -455,7 +482,10 @@ html,body {
     border: 1px solid #eee;
     background-color: #eee;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #butn3:hover {
     color: #344fa1;
@@ -470,7 +500,10 @@ html,body {
     border: 1px solid #eee;
     background-color: #eee;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #butn4:hover {
     color: #344fa1;
@@ -572,6 +605,9 @@ html,body {
     border-color: #28a745;
     height: 30px;
     width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .approve:hover {
     color: #fff;
@@ -585,6 +621,9 @@ html,body {
     border-color: #dc3545;
     height: 30px;
     width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .decline:hover {
     color: #fff;
@@ -612,7 +651,7 @@ html,body {
 .allsub p {
     height: 90%;
     width: 300px;
-    background-color: aqua;
+    background-color: #eee;
     overflow-y: scroll;
 }
 #messa {
@@ -692,10 +731,8 @@ html,body {
     padding: 2%;
 }
 .allsub {
-    background-color: #5C91B6;
     font-size: large;
-    cursor: pointer;
-    width: 100px;
+    width: 100%;
 }
 .tab1 {
     font-family: Arial, Helvetica, sans-serif;
