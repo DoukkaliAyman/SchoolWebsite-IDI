@@ -25,7 +25,8 @@ html,body {
 .menu {
     height: 100%;
     width: 23%;
-    background-color: #f0ebcc;
+    /* background-color: #f0ebcc; */
+    background-color: #fffbdf;
     float: left;
     display: flex;
     flex-flow: column nowrap;
@@ -206,6 +207,12 @@ html,body {
     background-color: #fffbdf;
     margin-left: 10px;
 }
+.tab thead tr {
+    display: block;
+}
+.tab thead tr th {
+    width: 200px;
+}
 .tab td,.tab th {
     border: 1px solid #ddd;
     padding: 8px;
@@ -220,9 +227,14 @@ html,body {
     color: white;
 }
 .tab tbody {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+    display: block;
+    height: 450px;
+    overflow: auto;
+    width: 100%;
+}
+.tab tbody tr td {
+    width: 200px;
+    /* text-align: center; */
 }
 #students {
     height: 100%;
@@ -319,16 +331,6 @@ html,body {
     justify-content: center;
     align-items: center;
     height: 50px;
-}
-.realschool {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-}
-#real {
-    width: 400px;
 }
 .substud {
     display: flex;
@@ -490,12 +492,250 @@ html,body {
 #su {
     margin-right: 70px;
 }
-#teach12 {
-    width: 30%;
-}
-#teach12 h1 {
-    width: 230px;
-}
-.deletestud {
+#deletestudent1 {
     height: 100%;
+}
+#form1 {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#delstud {
+    margin: auto;
+    width: 300px;
+    height: 100px;
+}
+#delstud option {
+    font-size: 20px;
+}
+#deleteteacher1 {
+    height: 100%;
+}
+#editteacher,#editstudent,#register,.divul {
+    height: 100%;
+}
+.divul {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+}
+.ulreg {
+    height: 100%;
+}
+.ulreg li {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100px;
+    background-color: #fffbdf;
+    /* padding-bottom: 10px; */
+}
+.ulreg li:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.ulreg li:hover {
+    background-color: #ddd;
+}
+.infoless {
+    height: 100px;
+    display: flex;
+}
+.infoness {
+    height: 300px;
+    width: 100%;
+    display: none;
+}
+.namereg {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+    cursor: pointer;
+}
+.app {
+    margin-left: auto;
+    padding-right: 100px;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.approve {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    height: 30px;
+    width: 100px;
+}
+.approve:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #218838;
+    cursor: pointer;
+}
+.decline {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    height: 30px;
+    width: 100px;
+}
+.decline:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+    cursor: pointer;
+}
+.allinfo {
+    height: 100%;
+}
+.allname,.birthdate,.alltel,.allemail,.allsub,.alltext {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alllabel {
+    font-size: 20px;
+    padding-right: 20px;
+}
+.wholename,.birthdate1,.wholetel,.wholeemail {
+    height: 70%;
+    width: 300px;
+}
+.allsub p {
+    height: 90%;
+    width: 300px;
+    background-color: aqua;
+    overflow-y: scroll;
+}
+#messa {
+    height: 90%;
+    width: 300px;
+}
+#addnotific,#editnotific,#delnotific,#notific {
+    height: 100%;
+}
+.form3 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.textare2 {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.textare2 label {
+    margin-bottom: 5px;
+    background-color: #5C91B6;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+}
+#message1 {
+    width: 400px;
+    height: 100%;
+    background-color: #eee;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgba(196, 195, 195, 0.664);
+}
+.selectstudteach {
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.allteach {
+    background-color: #eee;
+    font-size: large;
+    cursor: pointer;
+}
+.allteach:hover {
+    color: #5C91B6;
+    transition: all ease-in 0.2s;
+}
+.selectperson {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.selectperson label {
+    margin-bottom: 5px;
+    background-color: #5C91B6;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+}
+.selectperson select {
+    width: 300px;
+    height: 100%;
+    background-color: #eee;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.submit1 {
+    padding: 2%;
+}
+.allsub {
+    background-color: #5C91B6;
+    font-size: large;
+    cursor: pointer;
+    width: 100px;
+}
+.tab1 {
+    font-family: Arial, Helvetica, sans-serif;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    height: 100%;
+    width: 99%;
+    background-color: #fffbdf;
+    margin-left: 10px;
+}
+.tab1 thead tr {
+    display: block;
+}
+.tab1 thead tr th {
+    width: 200px;
+}
+.tab1 tr:nth-child(even){background-color: #f2f2f2;}
+.tab1 tr:hover {background-color: #ddd;}
+.tab1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.tab1 td,.tab1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.tab1 tbody {
+    display: block;
+    height: 450px;
+    overflow: auto;
+    width: 100%;
+}
+.tab1 tbody tr td {
+    width: 200px;
+    /* text-align: center; */
+}
+.tab1 td,.tab1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
