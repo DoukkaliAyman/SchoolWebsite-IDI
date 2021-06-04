@@ -29,7 +29,7 @@
                 $user12 = mysqli_fetch_assoc($result1);
                 if ($user12) {
                     $theUser = $user12['username'];
-                    $thePass = $user12['password'];
+                    $thePass = $user12['pass'];
                     $theEmail = $user12['email'];
                     $theSubj = $user12['subject'];
                     if (($theUser == $user1) && ($thePass == $pass1)) {
@@ -50,7 +50,7 @@
                 $user12 = mysqli_fetch_assoc($result1);
                 if ($user12) {
                     $theUser = $user12['username'];
-                    $thePass = $user12['password'];
+                    $thePass = $user12['pass'];
                     $theEmail = $user12['email'];
                     if (($theUser == $user1) && ($thePass == $pass1)) {
                         $_SESSION['user'] = $theUser;

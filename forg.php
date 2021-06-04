@@ -12,7 +12,7 @@
                 $user12 = mysqli_fetch_assoc($result1);
                 if ($user12) {
                     $theUser = $user12['username'];
-                    $thePass = $user12['password'];
+                    $thePass = $user12['pass'];
                     $to = $email1;
                     $subject = 'Forget Password';
                     $message = 'Hello there
@@ -31,7 +31,7 @@
                 $user12 = mysqli_fetch_assoc($result1);
                 if ($user12) {
                     $theUser = $user12['username'];
-                    $thePass = $user12['password'];
+                    $thePass = $user12['pass'];
                     $to = $email1;
                     $subject = 'Forget Password';
                     $message = 'Hello there

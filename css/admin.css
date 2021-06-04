@@ -24,28 +24,26 @@ html,body {
 } */
 .menu {
     height: 100%;
-    width: 23%;
-    /* background-color: #f0ebcc; */
-    background-color: #fffbdf;
+    width: 21%;
+    background-color: #faf9fe;
     float: left;
     display: flex;
     flex-flow: column nowrap;
 }
 .model {
     height: 100%;
-    width: 77%;
+    width: 79%;
     float: right;
 }
 .heading {
-    /* margin: 10px; */
     height: 20%;
-    font-family: Arial, Helvetica, sans-serif;
     flex: 1;
     display: flex;
     align-items: center;
 }
 .heading h2 {
-    padding: 0 0 0 10px;
+    padding-left: 20px;
+    color: #707070;
 }
 .menuContent {
     margin-top: 0px;
@@ -66,52 +64,44 @@ html,body {
     text-align: center;
     cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 .menuContent ul li p {
-    vertical-align: middle;
+    padding-left: 20px;
+    color: #707070;
 }
-#tchr,#adstud,#dlstud,#regs,#adnoti {
+#adstud,#dlstud,#adnoti {
     background-color: #5C91B6;
     color: white;
 }
 .logout {
     height: 20%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .log-out {
-    /* position: relative;
-    right: 30px; */
     height: 60px;
-    flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .logout a {
-    background-color: #344fa1;
-    color: white;
+    padding-left: 20px;
+    color: #707070;
 }
 .sett {
     height: 60px;
-    /* position: relative;
-    left: 30px; */
-    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
-.sett a {
+.sett p {
     padding-left: 20px;
-}
-.sett span {
-    position: relative;
-    right: 10px;
-    color: white;
+    cursor: pointer;
+    color: #707070;
+    text-decoration: underline;
 }
 .btn:hover {
     color: #eee;
@@ -140,13 +130,11 @@ html,body {
 }
 .head1 {
     height: 15%;
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
 }
 .content1 {
-    height: 85%;
+    height: 84%;
     width: 100%;
+    overflow: auto;
 }
 .teach {
     margin-right: auto;
@@ -156,9 +144,8 @@ html,body {
     align-items: center;
 }
 .menubar {
-    margin-left: auto;
     height: 100%;
-    width: 65%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -168,7 +155,7 @@ html,body {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 .menubar ul li {
@@ -179,9 +166,9 @@ html,body {
     height: 40px;
     width: 120px;
     border-radius: 10px;
-    color: black;
-    border: 1px solid #eee;
-    background-color: #eee;
+    color: white;
+    border: 1px solid #DCDCDC;
+    background-color: #DCDCDC;
     cursor: pointer;
     font-size: 16px;
     display: flex;
@@ -218,44 +205,6 @@ html,body {
     border-radius: 10px;
     background-color: #5C91B6;
     width: 125px;
-}
-.tab {
-    font-family: Arial, Helvetica, sans-serif;
-    /* border-collapse: collapse; */
-    border-spacing: 0;
-    height: 100%;
-    width: 99%;
-    background-color: #fffbdf;
-    margin-left: 10px;
-}
-.tab thead tr {
-    display: block;
-}
-.tab thead tr th {
-    width: 200px;
-}
-.tab td,.tab th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-.tab tr:nth-child(even){background-color: #f2f2f2;}
-.tab tr:hover {background-color: #ddd;}
-.tab th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-}
-.tab tbody {
-    display: block;
-    height: 450px;
-    overflow: auto;
-    width: 100%;
-}
-.tab tbody tr td {
-    width: 200px;
-    /* text-align: center; */
 }
 #students {
     height: 100%;
@@ -337,9 +286,16 @@ html,body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 100px;
 }
 .subb {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+.national {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -372,8 +328,7 @@ html,body {
 }
 .all input {
     border-radius: 3px;
-    background-color: #EEEEEE;
-    border: 1px solid #EEEEEE;
+    border: 1px solid black;
     width: 250px;
     height: 30px;
 }
@@ -388,9 +343,22 @@ html,body {
     margin-right: 10px;
 }
 .subj select {
-    background-color: #eee;
     width: 150px;
     height: 80px;
+}
+.nationalnumber {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.nationalnumber label {
+    align-self: center;
+    font-size: large;
+    margin-right: 10px;
+}
+.nationalnumber select {
+    height: 30px;
+    width: 240px;
 }
 #eye {
     position: relative;
@@ -401,7 +369,7 @@ html,body {
 .substud input {
     background-color: #5C91B6;
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
     cursor: pointer;
 }
 .btnstud {
@@ -543,120 +511,8 @@ html,body {
 #delstud option {
     font-size: 20px;
 }
-#deleteteacher1 {
-    height: 100%;
-}
 #editteacher,#editstudent,#register,.divul {
     height: 100%;
-}
-.divul {
-    display: flex;
-    flex-flow: column;
-    justify-content: left;
-    width: 100%;
-    height: 100%;
-}
-.ulreg {
-    height: 100%;
-}
-.ulreg li {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100px;
-    background-color: #fffbdf;
-    /* padding-bottom: 10px; */
-}
-.ulreg li:nth-child(even) {
-    background-color: #f2f2f2;
-}
-.ulreg li:hover {
-    background-color: #ddd;
-}
-.infoless {
-    height: 100px;
-    display: flex;
-}
-.infoness {
-    height: 300px;
-    width: 100%;
-    display: none;
-}
-.namereg {
-    width: 60%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 40px;
-    cursor: pointer;
-}
-.app {
-    margin-left: auto;
-    padding-right: 100px;
-    width: 40%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.approve {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-    height: 30px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.approve:hover {
-    color: #fff;
-    background-color: #218838;
-    border-color: #218838;
-    cursor: pointer;
-}
-.decline {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-    height: 30px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.decline:hover {
-    color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130;
-    cursor: pointer;
-}
-.allinfo {
-    height: 100%;
-}
-.allname,.birthdate,.alltel,.allemail,.allsub,.alltext {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.alllabel {
-    font-size: 20px;
-    padding-right: 20px;
-}
-.wholename,.birthdate1,.wholetel,.wholeemail {
-    height: 70%;
-    width: 300px;
-}
-.allsub p {
-    height: 90%;
-    width: 300px;
-    background-color: #eee;
-    overflow-y: scroll;
-}
-#messa {
-    height: 90%;
-    width: 300px;
 }
 #addnotific,#editnotific,#delnotific,#notific {
     height: 100%;
@@ -706,33 +562,14 @@ html,body {
     color: #5C91B6;
     transition: all ease-in 0.2s;
 }
-.selectperson {
-    height: 25%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-.selectperson label {
-    margin-bottom: 5px;
-    background-color: #5C91B6;
-    width: 150px;
-    text-align: center;
-    border-radius: 10px;
-}
-.selectperson select {
-    width: 300px;
-    height: 100%;
-    background-color: #eee;
-    border: 1px solid #eee;
-    border-radius: 5px;
-}
 .submit1 {
     padding: 2%;
 }
 .allsub {
     font-size: large;
-    width: 100%;
+    width: 150px;
+    background-color: #5C91B6;
+    cursor: pointer;
 }
 .tab1 {
     font-family: Arial, Helvetica, sans-serif;
@@ -740,17 +577,23 @@ html,body {
     border-spacing: 0;
     height: 100%;
     width: 99%;
-    background-color: #fffbdf;
+    background-color: white;
     margin-left: 10px;
+}
+.tab1 caption {
+    border: 1px solid;
+    width: 150px;
+    height: 25px;
+    text-align: center;
 }
 .tab1 thead tr {
     display: block;
 }
 .tab1 thead tr th {
-    width: 200px;
+    width: 90px;
 }
 .tab1 tr:nth-child(even){background-color: #f2f2f2;}
-.tab1 tr:hover {background-color: #ddd;}
+.tab1 tbody tr:hover {background-color: #ddd;}
 .tab1 th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -758,21 +601,65 @@ html,body {
     background-color: #4CAF50;
     color: white;
 }
-.tab1 td,.tab1 th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
 .tab1 tbody {
     display: block;
-    height: 450px;
+    height: 430px;
     overflow: auto;
     width: 100%;
 }
 .tab1 tbody tr td {
-    width: 200px;
+    width: 90px;
+    max-width: 90px;
+    overflow-x: auto;
     /* text-align: center; */
 }
 .tab1 td,.tab1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.tab2 {
+    font-family: Arial, Helvetica, sans-serif;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    height: 100%;
+    width: 99%;
+    background-color: white;
+    margin-left: 10px;
+}
+.tab2 caption {
+    border: 1px solid;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+}
+.tab2 thead tr {
+    display: block;
+}
+.tab2 thead tr th {
+    width: 82px;
+}
+.tab2 tr:nth-child(even){background-color: #f2f2f2;}
+.tab2 tbody tr:hover {background-color: #ddd;}
+.tab2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.tab2 tbody {
+    display: block;
+    height: 430px;
+    overflow: auto;
+    width: 100%;
+}
+.tab2 tbody tr td {
+    width: 82px;
+    max-width: 82px;
+    overflow-x: auto;
+    /* text-align: center; */
+}
+.tab2 td,.tab2 th {
     border: 1px solid #ddd;
     padding: 8px;
 }
