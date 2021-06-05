@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 02:16 AM
+-- Generation Time: Jun 05, 2021 at 06:28 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -66,9 +66,16 @@ CREATE TABLE `registeration` (
   `birthdate` date NOT NULL,
   `telephone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `subjects` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `registeration`
+--
+
+INSERT INTO `registeration` (`id`, `fname`, `lname`, `birthdate`, `telephone`, `email`, `message`) VALUES
+(1, 'asd', 'asfsac', '2002-08-24', '21321', 'asyd12@asdasd', 'asdasc'),
+(2, 'asfc', 'awdq', '2000-06-09', '132332', 'as@ewr', 'asfvc');
 
 -- --------------------------------------------------------
 
@@ -191,7 +198,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `registeration`
 --
 ALTER TABLE `registeration`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `students`

@@ -47,6 +47,8 @@
             $subjstudentadd = implode(' , ',$_POST['subjstudentadd']);
             $usernamestudentadd = filter_var($_POST['usernamestudentadd'], FILTER_SANITIZE_STRING);
             $passstudentadd = filter_var($_POST['passstudentadd'], FILTER_SANITIZE_STRING);
+            $add = "DELETE FROM `registeration` WHERE `registeration`.`email` = '{$emailstudentadd}';";
+            mysqli_query($link, $add);
             $addstudentsql = "INSERT INTO `students` (username,pass,fname,lname,email,telephone,national_id,subjects,birthdate,startingtime) VALUES ('$usernamestudentadd','$passstudentadd','$fnamestudentadd', '$lnamestudentadd','$emailstudentadd','$telstudentadd','$natstudentadd','$subjstudentadd','$bdatestudentadd','$startstudentadd');";
             if (mysqli_query($link, $addstudentsql)) {
                 $addstudentresult= 'Student Added successfully';
@@ -570,9 +572,9 @@
                                     $numberregister = mysqli_num_rows($listregisterquery);
                                     while ($fetchregister = mysqli_fetch_assoc($listregisterquery)) {
                                         echo "
-                                            <li style='height:280px;'>
+                                            <li id='li{$fetchregister['id']}' style='height:100px;'>
                                                 <div class='infoless'>
-                                                    <div class='namereg'>
+                                                    <div id='namereg{$fetchregister['id']}' class='namereg'>
                                                         {$fetchregister['fname']} {$fetchregister['lname']}
                                                     </div>
                                                     <div class='app'>
@@ -580,7 +582,7 @@
                                                         <button name='decline{$fetchregister['id']}' class='decline'>Delete</button>
                                                     </div>
                                                 </div>
-                                                <div class='infoness'>
+                                                <div id='infoness{$fetchregister['id']}' class='infoness' style='display:none;'>
                                                     <div class='allinfo'>
                                                         <div style='display:flex;justify-content:center;'>
                                                             <div class='allname all'>
@@ -603,24 +605,6 @@
                                                             </div>
                                                         </div>
                                                         <div style='display:flex;justify-content:center;'>
-                                                            <div class='subb all' style='width:100%;cursor:auto;background:transparent;height:70px;'>
-                                                                <label class='alllabel' for='subj'>Subjects: </label>
-                                                                <select disabled name='' multiple style='height:60px;width:200px;' id='para'>";
-                                                                        $listsubjectsql = 'SELECT * FROM `subjects`;';
-                                                                        $listsubjectquery = mysqli_query($link, $listsubjectsql);
-                                                                        $numberteacher = mysqli_num_rows($listsubjectquery);
-                                                                        $listsubjectregister = explode(' , ',$fetchregister['subjects']);
-                                                                        while ($fetchsubject = mysqli_fetch_assoc($listsubjectquery)) {
-                                                                            foreach ($listsubjectregister as $key) {
-                                                                                if ($key == $fetchsubject['valuesubject']) {
-                                                                                    echo 
-                                                                                        "<option selected value='{$fetchsubject['valuesubject']}'>{$fetchsubject['subjects']}</option>"
-                                                                                    ;
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                echo "</select>
-                                                            </div>
                                                             <div class='alltext all'>
                                                                 <label class='alllabel' for='textarea'>Message: </label>
                                                                 <textarea name='messa' id='messa' value='' disabled>{$fetchregister['message']}</textarea>
@@ -638,20 +622,34 @@
                 </div>
             </div>
             `;
-            /* $(document).ready(function(){
-                $(".ulreg li").click(function(){
-                    $(".ulreg li").css("height", "400px");
-                    $(".infoness").slideToggle();
-                });
-            }) */
+            <?php 
+                $listregistersql = "SELECT * FROM `registeration`;";
+                $listregisterquery = mysqli_query($link, $listregistersql);
+                $numberregister = mysqli_num_rows($listregisterquery);
+                echo "$(document).ready(function(){";
+                while ($fetchregister = mysqli_fetch_assoc($listregisterquery)) {
+                    echo "
+                        $('#namereg{$fetchregister['id']}').click(function(){
+                            if ($('#infoness{$fetchregister['id']}').css('display') == 'none') {
+                                $('#infoness{$fetchregister['id']}').slideDown(function(){
+                                    $('#li{$fetchregister['id']}').css('height', '280px');
+                                });
+                            } else {if ($('#infoness{$fetchregister['id']}').css('display') == 'block') {
+                                $('#infoness{$fetchregister['id']}').slideUp(function(){
+                                    $('#li{$fetchregister['id']}').css('height', '100px');
+                                });
+                            }}
+                        });
+                    ";
+                }
+                echo "})";
+            ?>
         }
         <?php
             $listregistersql = "SELECT * FROM `registeration`;";
             $listregisterquery = mysqli_query($link, $listregistersql);
             $numberregister = mysqli_num_rows($listregisterquery);
             while ($fetchregister = mysqli_fetch_assoc($listregisterquery)) {
-                $add = "DELETE FROM `registeration` WHERE `registeration`.`id` = {$fetchregister['id']};";
-                $listsubjregis = explode(' , ', $fetchregister['subjects']);
                 echo "function addstudent{$fetchregister['id']}(){
                     addstudent();
                     studs.parentElement.children[0].style.backgroundColor = '#FAF9FE';studs.parentElement.children[1].style.backgroundColor = 'white';studs.parentElement.children[2].style.backgroundColor = '#FAF9FE';studs.parentElement.children[3].style.backgroundColor = '#FAF9FE';
@@ -660,15 +658,6 @@
                     document.getElementById('bdatestudentadd').value = '{$fetchregister['birthdate']}';
                     document.getElementById('telstudentadd').value = '{$fetchregister['telephone']}';
                     document.getElementById('emailstudentadd').value = '{$fetchregister['email']}';";
-                foreach ($listsubjregis as $key1) {
-                    echo "
-                        for (var ix of document.getElementById('subjstudentadd').children) {
-                            if (ix.value == '{$key1}') {
-                                ix.setAttribute('selected','selected')
-                            }
-                        }
-                    ";
-                }
                 echo "}";
             }
         ?>
