@@ -1,0 +1,51 @@
+<!-- <?php
+    session_start();
+    include("../backendAll/connect.php");
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/fontawesome.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/brands.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/solid.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="heading">
+                <h2>Welcome <!-- <?php echo $_SESSION['user'] ?> --></h2>
+            </div>
+            <div class="menuContent">
+                <ul>
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = 'white';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';this.parentElement.children[3].style.backgroundColor = '#FAF9FE';" id="tchr"><p>Lectures</p></li>
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = 'white';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';this.parentElement.children[3].style.backgroundColor = '#FAF9FE';" id="studs"><p>Posts</p></li>
+                    <!-- <li onclick="addStudent()" id="adstud">Add a Student</li>
+                    <li onclick="addTeacher()">Add a Teacher</li>
+                    <li onclick="delStudent()" id="dlstud">Delete/Edit a Student</li>
+                    <li onclick="delTeacher()">Delete/Edit a Teacher</li> -->
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = 'white';this.parentElement.children[3].style.backgroundColor = '#FAF9FE';" id="regs"><p>Students</p></li>
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';this.parentElement.children[3].style.backgroundColor = 'white';" id="notifs"><p>Questions</p></li>
+                    <!-- <li onclick="addNotif()" id="adnoti">Add a Notif.</li> -->
+                    <hr>
+                </ul>
+            </div>
+            <div class="logout">
+                <div class="log-out">
+                    <a href="../backendAll/logout.php">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="model" id="modal">
+            <div id="lectures">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

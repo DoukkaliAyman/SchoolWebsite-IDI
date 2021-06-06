@@ -1320,9 +1320,9 @@
                                         <td>{$fetchstudent['fname']} {$fetchstudent['lname']}</td>
                                         <td>{$fetchstudent['birthdate']}</td>
                                         <td>{$fetchstudent['telephone']}</td>
+                                        <td>{$fetchstudent['subjects']}</td>
                                         <td>{$fetchstudent['email']}</td>
                                         <td>{$fetchstudent['national_id']}</td>
-                                        <td>{$fetchstudent['subjects']}</td>
                                         <td>{$fetchstudent['startingtime']}</td>
                                     </tr>
                                     ";

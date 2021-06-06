@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+.container {
+    height: 100%;
+    width: 100%;
+}
+.menu {
+    height: 100%;
+    width: 21%;
+    background-color: #faf9fe;
+    float: left;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.model {
+    height: 100%;
+    width: 79%;
+    float: right;
+}
+.heading {
+    height: 20%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.heading h2 {
+    padding-left: 20px;
+    color: #707070;
+}
+.menuContent {
+    margin-top: 0px;
+    height: 60%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.menuContent ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+.menuContent ul li {
+    padding: 5px 0;
+    width: 100%;
+    height: 21.5%;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.menuContent ul li p {
+    padding-left: 20px;
+    color: #707070;
+}
+.logout {
+    height: 20%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.log-out {
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logout a {
+    padding-left: 20px;
+    color: #707070;
+}
+#lectures {
+    height: 100%;
+}
