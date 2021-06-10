@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 06:28 PM
+-- Generation Time: Jun 11, 2021 at 12:32 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -56,6 +56,19 @@ CREATE TABLE `notifications` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notif_teacher`
+--
+
+CREATE TABLE `notif_teacher` (
+  `id` int(255) NOT NULL,
+  `subjects` varchar(255) NOT NULL,
+  `national_id` varchar(255) NOT NULL,
+  `messagee` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registeration`
 --
 
@@ -96,6 +109,14 @@ CREATE TABLE `students` (
   `birthdate` date NOT NULL,
   `startingtime` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `username`, `pass`, `fname`, `lname`, `email`, `telephone`, `national_id`, `subjects`, `birthdate`, `startingtime`) VALUES
+(1, 'ahmed', 'as', 'ahmed', 'saeed', 'asyd12855@gmail.com', '+44158673', '23435465432', 'ara , eng , jap', '2021-06-06', '2021-06-30'),
+(2, 'rewan', 'wdefw', 'rewan', 'saeed', 'asyd12855@gmail.com', '+44158673', '12323113', 'ara , eng , fra', '2000-06-09', '2021-06-09');
 
 -- --------------------------------------------------------
 
@@ -139,6 +160,52 @@ CREATE TABLE `teachers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `username`, `pass`, `fname`, `lname`, `email`, `telephone`, `national_id`, `subjects`, `startingtime`) VALUES
+(1, 'teacher1', 'm06ahmed', 'Ahmed', 'Saeed', 'asyd12855@gmail.com', '+201144158673', '123432342134', 'ara , eng , jap', '2021-06-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upload_pdf`
+--
+
+CREATE TABLE `upload_pdf` (
+  `id` int(255) NOT NULL,
+  `pdf_name` varchar(255) NOT NULL,
+  `national_id` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `subjects` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upload_videos_mp4`
+--
+
+CREATE TABLE `upload_videos_mp4` (
+  `id` int(255) NOT NULL,
+  `video_name` varchar(255) NOT NULL,
+  `national_id` varchar(255) NOT NULL,
+  `subjects` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upload_videos_url`
+--
+
+CREATE TABLE `upload_videos_url` (
+  `id` int(255) NOT NULL,
+  `video_url` varchar(255) NOT NULL,
+  `national_id` varchar(255) NOT NULL,
+  `subjects` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -152,6 +219,12 @@ ALTER TABLE `admin`
 -- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notif_teacher`
+--
+ALTER TABLE `notif_teacher`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -179,6 +252,24 @@ ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `upload_pdf`
+--
+ALTER TABLE `upload_pdf`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `upload_videos_mp4`
+--
+ALTER TABLE `upload_videos_mp4`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `upload_videos_url`
+--
+ALTER TABLE `upload_videos_url`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -195,6 +286,12 @@ ALTER TABLE `notifications`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `notif_teacher`
+--
+ALTER TABLE `notif_teacher`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `registeration`
 --
 ALTER TABLE `registeration`
@@ -204,7 +301,7 @@ ALTER TABLE `registeration`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -216,6 +313,24 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `upload_pdf`
+--
+ALTER TABLE `upload_pdf`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `upload_videos_mp4`
+--
+ALTER TABLE `upload_videos_mp4`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `upload_videos_url`
+--
+ALTER TABLE `upload_videos_url`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

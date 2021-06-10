@@ -32,10 +32,14 @@
                     $thePass = $user12['pass'];
                     $theEmail = $user12['email'];
                     $theSubj = $user12['subject'];
+                    $thename = $user12['fname'];
+                    $national = $user12['national_id'];
                     if (($theUser == $user1) && ($thePass == $pass1)) {
                         $_SESSION['user'] = $theUser;
                         $_SESSION['email'] = $theEmail;
                         $_SESSION['subj'] = $theSubj;
+                        $_SESSION['name'] = $thename;
+                        $_SESSION['national'] = $national;
                         header("Location: backendDoctor/doctor.php");
                         $errorlog1 = '';
                     } else {

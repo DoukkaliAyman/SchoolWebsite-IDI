@@ -68,9 +68,9 @@
             $passstudentedit = filter_var($_POST['passstudentedit'], FILTER_SANITIZE_STRING);
             $editstudentfinally = "UPDATE `students` SET `username` = '{$usernamestudentedit}', `pass` = '{$passstudentedit}', `fname` = '{$fnamestudentedit}', `lname` = '{$lnamestudentedit}', `email` = '{$emailstudentedit}', `telephone` = '{$telstudentedit}', `birthdate` = '{$bdatestudentedit}', `subjects` = '{$subjstudentedit}', `startingtime` = '{$startstudentedit}' WHERE `id` = {$nationalstudentedit};";
             if (mysqli_query($link,$editstudentfinally)) {
-                $editstudentresult = "Teacher Edited Successfully";
+                $editstudentresult = "Student Edited Successfully";
             } else {
-                $editstudentresult = 'Something went wrong with Editing a Teacher';
+                $editstudentresult = 'Something went wrong with Editing a Student';
             }
         }
         $listteachersql1 = "SELECT * FROM `teachers`;";
