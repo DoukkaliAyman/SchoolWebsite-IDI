@@ -4,7 +4,7 @@
     if ($_SERVER['REQUEST_METHOD']=='POST') {
         if (isset($_POST['submitForg'])) {
             $email1 = filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL, FILTER_SANITIZE_EMAIL);
-            $natid = filter_var($_POST['natid'], FILTER_SANITIZE_NUMBER_INT);
+            $natid = filter_var($_POST['natid'], FILTER_SANITIZE_STRING);
             $chose = filter_var($_POST['user2'], FILTER_SANITIZE_STRING);
             if (($chose == 'teacher') && (trim($email1)) && (trim($natid))) {
                 $teacher1 = "SELECT * FROM `teachers` WHERE email = '{$email1}' and national_id = '{$natid}';";
@@ -65,7 +65,7 @@
                 <label for="email">Email: </label>
                 <input type="email" required placeholder="Type Your Email" name="email1" id="email1">
                 <label for="natid">National ID: </label>
-                <input type="number" required placeholder="Type Your National ID" name="natid" id="natid">
+                <input type="text" required placeholder="Type Your National ID" name="natid" id="natid">
             </div>
             <div class="radios">
                 <input type="radio" name="user2" value="teacher" id="teacher1" required>
