@@ -231,6 +231,21 @@
             border: 1px solid #ddd;
             padding: 8px;
         }
+        .teach {
+            margin-right: auto;
+            height: 100%;
+            width: 20%;
+            display: flex;
+            align-items: center;
+        }
+        .teach h1 {
+            text-transform: capitalize;
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 10px;
+            background-color: #5C91B6;
+            width: 125px;
+        }
     </style>
 </head>
 <body>
@@ -241,14 +256,14 @@
             </div>
             <div class="menuContent">
                 <ul>
-                    <li onclick="this.parentElement.children[0].style.backgroundColor = 'white';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';students()" id="studs"><p>Students</p></li>
-                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = 'white';notif()" id="noti"><p>Notifications</p></li>
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = 'white';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';students()" id="studs"><p>Students</p></li>
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = 'white';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';notif()" id="noti"><p>Notifications</p></li>
                     <!-- <li onclick="addStudent()" id="adstud">Add a Student</li>
                     <li onclick="addTeacher()">Add a Teacher</li>
                     <li onclick="delStudent()" id="dlstud">Delete/Edit a Student</li>
                     <li onclick="delTeacher()">Delete/Edit a Teacher</li> -->
-                    <!-- <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = 'white';this.parentElement.children[3].style.backgroundColor = '#FAF9FE';" id="regs"><p></p></li>
-                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';this.parentElement.children[3].style.backgroundColor = 'white';" id="notifs"><p>Questions</p></li> -->
+                    <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = 'white';admin()" id="regs"><p>Administrator</p></li>
+                    <!-- <li onclick="this.parentElement.children[0].style.backgroundColor = '#FAF9FE';this.parentElement.children[1].style.backgroundColor = '#FAF9FE';this.parentElement.children[2].style.backgroundColor = '#FAF9FE';this.parentElement.children[3].style.backgroundColor = 'white';" id="notifs"><p>Questions</p></li> -->
                     <!-- <li onclick="addNotif()" id="adnoti">Add a Notif.</li> -->
                 </ul>
             </div>
@@ -286,7 +301,7 @@
                         <option value="">Select Subject</option>
                         <?php
                             $national = $_SESSION['national'];
-                            $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                            $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                             $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                             $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                             $arrayforsubj = array();
@@ -333,7 +348,7 @@
         function subjchange(){
             <?php
                 $national = $_SESSION['national'];
-                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                 $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                 $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                 foreach ($teachersubj as $key) {
@@ -441,7 +456,7 @@
                                 <option value="">Select Subject</option>
                                 <?php
                                     $national = $_SESSION['national'];
-                                    $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                                    $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                                     $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                                     $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                                     $arrayforsubj = array();
@@ -503,7 +518,7 @@
                                             <option value="">Select Subject</option>
                                             <?php
                                                 $national = $_SESSION['national'];
-                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                                                 $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                                                 $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                                                 $arrayforsubj = array();
@@ -565,7 +580,7 @@
                                             <option value="">Select Subject</option>
                                             <?php
                                                 $national = $_SESSION['national'];
-                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                                                 $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                                                 $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                                                 $arrayforsubj = array();
@@ -627,7 +642,7 @@
                                             <option value="">Select Subject</option>
                                             <?php
                                                 $national = $_SESSION['national'];
-                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = {$national};";
+                                                $listsubjectteachersql = "SELECT subjects FROM `teachers` WHERE national_id = '{$national}';";
                                                 $listsubjectteacherquery = mysqli_query($link, $listsubjectteachersql);
                                                 $teachersubj = explode(' , ', mysqli_fetch_assoc($listsubjectteacherquery)['subjects']);
                                                 $arrayforsubj = array();
@@ -750,6 +765,46 @@
             </div>
             `;
             document.getElementById('thespan').innerHTML = document.getElementById('tbodynum').childElementCount;
+        }
+        function admin(){
+            modal.innerHTML = `
+            <div id="register" style='height: 100%;'>
+                <div style="margin-right: 0;width: 100%;justify-content: center;" class="head1">
+                    <div style="margin-right: 0;width: 100%;justify-content: center;" class="teach">
+                        <h1 style="width: 280px;">Admin Notifications</h1>
+                    </div>
+                </div>
+                <div class="content1" style="overflow-y: scroll;">
+                    <form action="doctor.php" method="POST">
+                        <div class="divul">
+                            <ul class="ulnoti">
+                                <?php
+                                    $national_teacher = $_SESSION['national'];
+                                    $fullname_sql = "SELECT fname,lname FROM `teachers`WHERE national_id = '{$national_teacher}';";
+                                    $fullname_query = mysqli_query($link,$fullname_sql);
+                                    $fullname_fetch = mysqli_fetch_assoc($fullname_query);
+                                    $list_notif_sql = "SELECT * FROM `notifications` WHERE kind = 'teacher' AND fullname = '{$fullname_fetch['fname']} {$fullname_fetch['lname']}';";
+                                    $list_notif_query = mysqli_query($link, $list_notif_sql);
+                                    $number_notif = mysqli_num_rows($list_notif_query);
+                                    while ($fetchnotif = mysqli_fetch_assoc($list_notif_query)) {
+                                        echo "
+                                            <li style='height: 100px;'>
+                                                <div class='infoless' style='justify-content: center;'>
+                                                    <div style='padding-left: 0;display: flex;align-items: center;'>
+                                                        <caption>Message: </caption>
+                                                        <textarea style='margin-right: 0;' disabled id='messagenotif' cols='40' rows='5'>{$fetchnotif['messa']}</textarea>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ";
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            `;
         }
         /* <form action="admin.php" method="POST">
             <div class="divul">

@@ -129,12 +129,13 @@
             $messagenotif = filter_var($_POST['messagenotiadd'], FILTER_SANITIZE_STRING);
             $personnotif = filter_var($_POST['selectpersonnotif'], FILTER_SANITIZE_STRING);
             if (substr($personnotif, 0, 7) == 'teacher') {
-                $teachernotifsql = "SELECT fname,lname FROM `teachers` WHERE id = {$personnotif[7]};";
+                $teachernotifsql = "SELECT fname,lname,national_id FROM `teachers` WHERE id = {$personnotif[7]};";
                 $teachernotifquery = mysqli_query($link,$teachernotifsql);;
                 $teachernotifassoc = mysqli_fetch_assoc($teachernotifquery);
                 $teachernotiffname = $teachernotifassoc['fname'];
                 $teachernotiflname = $teachernotifassoc['lname'];
-                $notifteachersql = "INSERT INTO `notifications` (fullname,kind,messa) VALUES ('$teachernotiffname $teachernotiflname','teacher','$messagenotif');";
+                $teachernotifnational = $teachernotifassoc['national_id'];
+                $notifteachersql = "INSERT INTO `notifications` (fullname,kind,national_id,messa) VALUES ('$teachernotiffname $teachernotiflname','teacher','$teachernotifnational','$messagenotif');";
                 $notifteacherquery = mysqli_query($link,$notifteachersql);
                 if ($notifteacherquery) {
                     $notifresult = "Notification Sent Successfully";
@@ -142,12 +143,13 @@
                     $notifresult = "Something went wrong with sending a notification";
                 }
             } elseif (substr($personnotif, 0, 7) == 'student') {
-                $studentnotifsql = "SELECT fname,lname FROM `students` WHERE id = {$personnotif[7]};";
+                $studentnotifsql = "SELECT fname,lname,national_id FROM `students` WHERE id = {$personnotif[7]};";
                 $studentnotifquery = mysqli_query($link,$studentnotifsql);;
                 $studentnotifassoc = mysqli_fetch_assoc($studentnotifquery);
                 $studentnotiffname = $studentnotifassoc['fname'];
                 $studentnotiflname = $studentnotifassoc['lname'];
-                $notifstudentsql = "INSERT INTO `notifications` (fullname,kind,messa) VALUES ('$studentnotiffname $studentnotiflname','student','$messagenotif');";
+                $studentnotifnational = $studentnotifassoc['national_id'];
+                $notifstudentsql = "INSERT INTO `notifications` (fullname,kind,national_id,messa) VALUES ('$studentnotiffname $studentnotiflname','student','$studentnotifnational','$messagenotif');";
                 $notifstudentquery = mysqli_query($link,$notifstudentsql);
                 if ($notifstudentquery) {
                     $notifresult = "Notification Sent Successfully";

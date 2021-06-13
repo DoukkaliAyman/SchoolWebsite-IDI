@@ -54,11 +54,15 @@
                 $user12 = mysqli_fetch_assoc($result1);
                 if ($user12) {
                     $theUser = $user12['username'];
+                    $thename1 = $user12['fname'];
                     $thePass = $user12['pass'];
                     $theEmail = $user12['email'];
+                    $thenational = $user12['national_id'];
                     if (($theUser == $user1) && ($thePass == $pass1)) {
                         $_SESSION['user'] = $theUser;
+                        $_SESSION['fname'] = $thename1;
                         $_SESSION['email'] = $theEmail;
+                        $_SESSION['national_stud'] = $thenational;
                         header("Location: backendStudent/student.php");
                         $errorlog1 = '';
                     } else {

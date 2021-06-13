@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2021 at 12:43 AM
+-- Generation Time: Jun 14, 2021 at 01:05 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -50,8 +50,18 @@ CREATE TABLE `notifications` (
   `id` int(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `kind` varchar(255) NOT NULL,
+  `national_id` varchar(255) NOT NULL,
   `messa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `fullname`, `kind`, `national_id`, `messa`) VALUES
+(2, 'ex ample', 'teacher', '324532xcv', 'qwdas'),
+(3, 'Ahmed Saeed', 'student', '324tr', 'czxqs'),
+(4, 'ex ample', 'student', '23e', 'adew');
 
 -- --------------------------------------------------------
 
@@ -65,6 +75,14 @@ CREATE TABLE `notif_teacher` (
   `national_id` varchar(255) NOT NULL,
   `messagee` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notif_teacher`
+--
+
+INSERT INTO `notif_teacher` (`id`, `subjects`, `national_id`, `messagee`) VALUES
+(1, 'Ara', '2134as', 'asd'),
+(2, 'Eng', '2134as', 'zxc');
 
 -- --------------------------------------------------------
 
@@ -81,14 +99,6 @@ CREATE TABLE `registeration` (
   `email` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `registeration`
---
-
-INSERT INTO `registeration` (`id`, `fname`, `lname`, `birthdate`, `telephone`, `email`, `message`) VALUES
-(1, 'asd', 'asfsac', '2002-08-24', '21321', 'asyd12@asdasd', 'asdasc'),
-(2, 'asfc', 'awdq', '2000-06-09', '132332', 'as@ewr', 'asfvc');
 
 -- --------------------------------------------------------
 
@@ -115,8 +125,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `username`, `pass`, `fname`, `lname`, `email`, `telephone`, `national_id`, `subjects`, `birthdate`, `startingtime`) VALUES
-(1, 'ahmed', 'as', 'ahmed', 'saeed', 'asyd12855@gmail.com', '+44158673', '23435465432', 'ara , eng , jap', '2021-06-06', '2021-06-30'),
-(2, 'rewan', 'wdefw', 'rewan', 'saeed', 'asyd12855@gmail.com', '+44158673', '12323113', 'ara , eng , fra', '2000-06-09', '2021-06-09');
+(1, 'student1', 'm06ahmed', 'Ahmed', 'Saeed', 'asyd12855@gmail.com', '+44158673', '324tr', 'Ara , Eng , Fra , Mat', '2021-06-14', '2021-06-13'),
+(3, 'student3', 'm06ahmed', 'aslam', 'abdo', 'zxc@a', '+44158673', '1234543edd', 'Ara , Eng', '2021-06-02', '2021-06-28'),
+(4, 'student4', 'm06ahmed', 'ex', 'ample', 'asyd12855@gmail.com', '+44158673', '23e', 'Ara', '2021-06-02', '2021-06-15');
 
 -- --------------------------------------------------------
 
@@ -135,10 +146,10 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `valuesubject`, `subjects`) VALUES
-(1, 'ara', 'arabic'),
-(2, 'eng', 'english'),
-(3, 'jap', 'japanese'),
-(4, 'fra', 'france');
+(1, 'Ara', 'Arabic'),
+(2, 'Eng', 'English'),
+(3, 'Fra', 'France'),
+(4, 'Mat', 'Math');
 
 -- --------------------------------------------------------
 
@@ -164,7 +175,9 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `username`, `pass`, `fname`, `lname`, `email`, `telephone`, `national_id`, `subjects`, `startingtime`) VALUES
-(1, 'teacher1', 'm06ahmed', 'Ahmed', 'Saeed', 'asyd12855@gmail.com', '+201144158673', '123432342134', 'ara , eng , jap', '2021-06-05');
+(2, 'teacher2', 'm06ahmed', 'Saeed', 'Mahmoud', 'asd@asd', '+44158673', '324213ascxz', 'Ara , Mat', '2021-06-10'),
+(4, 'teacher3', 'm06ahmed', 'Ahmed', 'Saeed', 'zxc@as', '+44158673', '2345432wq', 'Ara , Eng , Mat', '2021-06-14'),
+(5, 'teacher4', 'm06ahmed', 'ex', 'ample', 'zxc@we', '+44158673', '324532xcv', 'Ara , Eng , Fra , Mat', '2021-06-14');
 
 -- --------------------------------------------------------
 
@@ -184,7 +197,7 @@ CREATE TABLE `upload_pdf` (
 --
 
 INSERT INTO `upload_pdf` (`id`, `pdf_name`, `national_id`, `subjects`) VALUES
-(1, 'Lecture 1 - Electrostatics.pdf', '123432342134', 'jap');
+(1, 'Lect. 1.pdf', '2134as', 'Ara');
 
 -- --------------------------------------------------------
 
@@ -204,7 +217,7 @@ CREATE TABLE `upload_videos_mp4` (
 --
 
 INSERT INTO `upload_videos_mp4` (`id`, `video_name`, `national_id`, `subjects`) VALUES
-(1, 'lect-1_yNgH9dOx.mp4', '123432342134', 'eng');
+(1, 'lect-1_yNgH9dOx.mp4', '2134as', 'Ara');
 
 -- --------------------------------------------------------
 
@@ -224,7 +237,7 @@ CREATE TABLE `upload_videos_url` (
 --
 
 INSERT INTO `upload_videos_url` (`id`, `video_url`, `national_id`, `subjects`) VALUES
-(1, 'https://www.youtube.com/watch?v=eewc_fjV8HU', '123432342134', 'ara');
+(1, 'https://www.youtube.com/watch?v=eewc_fjV8HU', '2134as', 'Eng');
 
 --
 -- Indexes for dumped tables
@@ -304,37 +317,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notif_teacher`
 --
 ALTER TABLE `notif_teacher`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `registeration`
 --
 ALTER TABLE `registeration`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `upload_pdf`
